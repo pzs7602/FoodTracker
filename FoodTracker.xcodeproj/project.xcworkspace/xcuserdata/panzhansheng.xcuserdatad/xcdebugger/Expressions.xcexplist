@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "FoodViewController.imagePickerController(UIImagePickerController, didFinishPickingMediaWithInfo : [String : AnyObject]) -&gt; ():FoodViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.delegate">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FoodListViewController.prepare(for : UIStoryboardSegue, sender : AnyObject?) -&gt; ():FoodListViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "segue.identifier">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FoodViewController.viewDidLoad() -&gt; ():FoodViewController.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
