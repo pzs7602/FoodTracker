@@ -10,13 +10,14 @@ import UIKit
 import CoreLocation
 import ReplayKit
 
-class FoodListViewController: UITableViewController,CLLocationManagerDelegate,MyLocationDelegate {
+class FoodListViewController: UITableViewController,CLLocationManagerDelegate,MyLocationDelegate,RPBroadcastActivityViewControllerDelegate {
 
     private var  foods: [Food] = [Food]()
     let locationManager = CLLocationManager()
     var currentLocation:CLLocation?
     var sharedRecorder: RPScreenRecorder = RPScreenRecorder.shared()
     var previewViewController: RPPreviewViewController?
+    var broadcastController: RPBroadcastController?
     
     @IBOutlet weak var recordStopButton: UIBarButtonItem!
     func loadFoods() -> [Food]? {
@@ -220,18 +221,40 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
         let item = sender as! UIBarButtonItem
         if item.title == "Record"{
             item.title = "Stop"
-            sharedRecorder.startRecording { error in
-                if error == nil {
-                    
-                } }
+            RPBroadcastActivityViewController.load { broadcastAVC, error in
+                if let broadcastAVC = broadcastAVC {
+                    broadcastAVC.delegate = self
+                    self.present(broadcastAVC, animated: true, completion: nil)
+                }
+            }
+//            sharedRecorder.startRecording { error in
+//                if error == nil {
+//                    
+//                }
+//            }
         }
+        // by showing preview, you can share or save the video
+        // but app cannt get access the recording video
         else{
             item.title = "Record"
-            sharedRecorder.stopRecording(handler: { (preview:RPPreviewViewController?, error:Error?) in
-                self.present(preview!, animated: true)
-            })
+            self.broadcastController?.finishBroadcast { (error:Error?) in
+                
+            }
+//            sharedRecorder.stopRecording{ (preview:RPPreviewViewController?, error:Error?) in
+//                self.present(preview!, animated: true)
+//            }
         }
     }
+    func broadcastActivityViewController(_ broadcastActivityViewController: RPBroadcastActivityViewController, didFinishWith broadcastController: RPBroadcastController?, error: Error?) {
+        broadcastActivityViewController.dismiss(animated: true) {
+            broadcastController?.startBroadcast { error in
+                // broadcast started!
+                print("broadcast started")
+                self.broadcastController = broadcastController
+            }
+        }
+    }
+
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.gdou.RadioPlayer" in the application's documents Application Support directory.
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
