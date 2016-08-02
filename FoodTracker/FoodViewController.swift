@@ -83,7 +83,7 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             food!.videoFileName = "video" + dateFormat.string(from: NSDate() as Date) + ".MOV"
             let filePath = (self.applicationDocumentsDirectory.path! as NSString).appendingPathComponent((food?.videoFileName)!)
             do{
-                try FileManager.default.moveItem(atPath:tempURL!.path!,toPath:filePath)
+                try FileManager.default.moveItem(atPath:tempURL!.path,toPath:filePath)
             }
             catch let error as NSError?{
                 print("error moving file:\(error?.description)")
@@ -177,11 +177,11 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         // else the segue trigered by tap the image
         else if segue.identifier == "showmap"{
-            let vc = (segue.destinationViewController as! UINavigationController).topViewController as! MapViewController
+            let vc = (segue.destination as! UINavigationController).topViewController as! MapViewController
             vc.location = food!.location
         }
         else if segue.identifier == "videoplay"{
-            let vc = segue.destinationViewController as! AVPlayerViewController
+            let vc = segue.destination as! AVPlayerViewController
             let filePath = (self.applicationDocumentsDirectory.path! as NSString).appendingPathComponent((food?.videoFileName)!)
             print("play:\(filePath)")
             vc.player = AVPlayer(url: URL(fileURLWithPath: filePath))
@@ -224,7 +224,7 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.gdou.RadioPlayer" in the application's documents Application Support directory.
-        let urls = FileManager.default.urlsForDirectory(.documentDirectory, inDomains: .userDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1] as NSURL
     }()
 }

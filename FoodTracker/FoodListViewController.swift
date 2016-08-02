@@ -8,14 +8,19 @@
 
 import UIKit
 import CoreLocation
+import ReplayKit
+
 class FoodListViewController: UITableViewController,CLLocationManagerDelegate,MyLocationDelegate {
 
     private var  foods: [Food] = [Food]()
     let locationManager = CLLocationManager()
     var currentLocation:CLLocation?
+    var sharedRecorder: RPScreenRecorder = RPScreenRecorder.shared()
+    var previewViewController: RPPreviewViewController?
     
+    @IBOutlet weak var recordStopButton: UIBarButtonItem!
     func loadFoods() -> [Food]? {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Food.ArchiveURL.path!) as? [Food]
+        return NSKeyedUnarchiver.unarchiveObject(withFile: Food.ArchiveURL.path) as? [Food]
     }
     
     override func viewDidLoad() {
@@ -109,7 +114,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     }
     
     @IBAction func exitToFoodList(_ segue: UIStoryboardSegue){
-        if let preVC = segue.sourceViewController as? FoodViewController, let food = preVC.food {
+        if let preVC = segue.source as? FoodViewController, let food = preVC.food {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
                 foods[(selectedIndexPath as NSIndexPath).row] = food
@@ -127,7 +132,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     }
     
     func saveFoods() {
-        let success = NSKeyedArchiver.archiveRootObject(foods, toFile: Food.ArchiveURL.path!)
+        let success = NSKeyedArchiver.archiveRootObject(foods, toFile: Food.ArchiveURL.path)
         if !success {
             print("Failed ...")
         }
@@ -168,7 +173,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showfood" {
-            let foodViewController = segue.destinationViewController as! FoodViewController
+            let foodViewController = segue.destination as! FoodViewController
             foodViewController.delegate = self
             
             // Get the cell that generated this segue.
@@ -179,7 +184,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
             }
         }
         else if segue.identifier == "addnew"{
-            let foodViewController = (segue.destinationViewController as! UINavigationController).topViewController as! FoodViewController
+            let foodViewController = (segue.destination as! UINavigationController).topViewController as! FoodViewController
             foodViewController.delegate = self
         
         }
@@ -210,9 +215,26 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     func getCurrentLocation() -> CLLocation? {
         return self.currentLocation
     }
+    
+    @IBAction func recordStopAction(_ sender: AnyObject) {
+        let item = sender as! UIBarButtonItem
+        if item.title == "Record"{
+            item.title = "Stop"
+            sharedRecorder.startRecording { error in
+                if error == nil {
+                    
+                } }
+        }
+        else{
+            item.title = "Record"
+            sharedRecorder.stopRecording(handler: { (preview:RPPreviewViewController?, error:Error?) in
+                self.present(preview!, animated: true)
+            })
+        }
+    }
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.gdou.RadioPlayer" in the application's documents Application Support directory.
-        let urls = FileManager.default.urlsForDirectory(.documentDirectory, inDomains: .userDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1] as NSURL
     }()
 }

@@ -48,8 +48,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
 
     func getStringLocationFrom(location:CLLocation) -> String{
         var address = ""
-        CLGeocoder().reverseGeocodeLocation(location) { (marks:[CLPlacemark]?, error:NSError?) in
-            if marks!.count>0{
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler:{(marks, error) in
+            if error == nil, marks?.count>0{
                 let country = (marks![0].country) ?? ""
                 let admin = (marks![0].administrativeArea) ?? ""
                 let subadmin = (marks?[0].subAdministrativeArea) ?? ""
@@ -60,7 +60,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                     self.title = "您位于：" + address
                 }
             }
-        }
+        })
+    
         // the returned address is empty, we can get proper address from completiuon handler
         return address
     }
