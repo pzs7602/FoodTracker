@@ -35,6 +35,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         let request = MKDirectionsRequest()
         if from == nil{
             request.source = MKMapItem.forCurrentLocation()
+            request.source?.name = "当前位置"
         }
         request.requestsAlternateRoutes = false
         CLGeocoder().reverseGeocodeLocation(location!, completionHandler:{(marks, error) in
@@ -43,6 +44,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                 let placeMark = MKPlacemark(coordinate: (self.location?.coordinate)!,addressDictionary:self.addressDictionary)
                 print("name=\(marks![0].name),\(marks![0].addressDictionary)")
                 request.destination = MKMapItem(placemark: placeMark)
+                request.destination?.name = marks?[0].name
                 // show overlay in map
                 let directions = MKDirections(request: request)
                 directions.calculate { (response:MKDirectionsResponse?, error:Error?) in
@@ -61,14 +63,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             }
         })
     }
-//    func getPlaceMark(from location:CLLocation) -> MKPlacemark{
-//        CLGeocoder().reverseGeocodeLocation(location, completionHandler:{(marks, error) in
-//            if error == nil, marks?.count>0{
-                
-//            }
-//        })
-        
-//    }
+
     func showRoutes(response:MKDirectionsResponse)
     {
         for route in response.routes{

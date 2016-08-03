@@ -11,6 +11,7 @@ import CoreLocation
 import MobileCoreServices
 import AVKit
 import MediaPlayer
+import Speech
 
 protocol MyLocationDelegate {
     func getCurrentLocation() -> CLLocation?
@@ -127,6 +128,12 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
 
     }
     
+    @IBAction func exitToFoodView(_ segue: UIStoryboardSegue){
+        let vc = segue.source as! SpeechViewController
+        self.foodNameText.text = vc.speechText.text
+        self.dismiss(animated: true, completion: nil)
+        
+    }
     @IBAction func takePhotoAction(_ sender: AnyObject) {
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
@@ -216,6 +223,10 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         let image:UIImage? = UIImage(cgImage: cgImage!)
         return image
+    }
+
+    @IBAction func speechRecord(_ sender: AnyObject) {
+
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

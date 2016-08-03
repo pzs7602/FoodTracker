@@ -122,17 +122,31 @@
                                     <constraint firstAttribute="bottom" secondItem="34A-CN-MYd" secondAttribute="bottom" id="vkK-OI-eOZ"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I2u-FN-iob">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="DJ8-Kh-QvC"/>
+                                    <constraint firstAttribute="height" constant="30" id="y7x-iZ-kGS"/>
+                                </constraints>
+                                <state key="normal" image="mic"/>
+                                <connections>
+                                    <action selector="speechRecord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ij4-zE-VZj"/>
+                                    <segue destination="ZXV-b8-Kdx" kind="presentation" identifier="speech" id="6Fd-mR-Btr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="ImS-pK-oie" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Gpr-kY-iFs"/>
                             <constraint firstItem="NAD-MH-PCd" firstAttribute="top" secondItem="ImS-pK-oie" secondAttribute="bottom" constant="14" id="S2w-fO-YcB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="h7k-Ni-hkC" secondAttribute="trailing" id="YV7-Yg-aNB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="I2u-FN-iob" secondAttribute="trailing" id="Sq7-5B-EHf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="h7k-Ni-hkC" secondAttribute="trailing" constant="30" id="YV7-Yg-aNB"/>
                             <constraint firstItem="NAD-MH-PCd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Z3k-LN-sSa"/>
                             <constraint firstItem="h7k-Ni-hkC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ZoH-47-RAG"/>
+                            <constraint firstItem="I2u-FN-iob" firstAttribute="baseline" secondItem="h7k-Ni-hkC" secondAttribute="baseline" id="cLD-2B-jmc"/>
                             <constraint firstItem="ImS-pK-oie" firstAttribute="top" secondItem="h7k-Ni-hkC" secondAttribute="bottom" constant="20" id="fNw-4a-WjA"/>
                             <constraint firstItem="NAD-MH-PCd" firstAttribute="width" secondItem="ImS-pK-oie" secondAttribute="width" id="kgH-Og-7PR"/>
                             <constraint firstItem="h7k-Ni-hkC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="qld-yC-OEC"/>
+                            <constraint firstItem="I2u-FN-iob" firstAttribute="leading" secondItem="h7k-Ni-hkC" secondAttribute="trailing" id="wqh-qa-bdO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Food" id="qC6-CK-qJj">
@@ -206,6 +220,56 @@
             </objects>
             <point key="canvasLocation" x="4040.8000000000002" y="484.40779610194909"/>
         </scene>
+        <!--Speech Recogition-->
+        <scene sceneID="9pR-sj-xIE">
+            <objects>
+                <viewController id="NkO-Kh-ZwI" customClass="SpeechViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nZ5-jN-pZl"/>
+                        <viewControllerLayoutGuide type="bottom" id="3m5-fd-SW8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rRr-Dd-zaM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vZn-Mp-WUr">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="vZn-Mp-WUr" firstAttribute="leading" secondItem="rRr-Dd-zaM" secondAttribute="leading" constant="10" id="QRW-Nh-ryS"/>
+                            <constraint firstAttribute="trailing" secondItem="vZn-Mp-WUr" secondAttribute="trailing" constant="10" id="oKd-bx-3wb"/>
+                            <constraint firstItem="3m5-fd-SW8" firstAttribute="top" secondItem="vZn-Mp-WUr" secondAttribute="bottom" constant="10" id="q2u-m5-13X"/>
+                            <constraint firstItem="vZn-Mp-WUr" firstAttribute="top" secondItem="nZ5-jN-pZl" secondAttribute="bottom" constant="10" id="wKP-ZW-JP9"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Speech Recogition" id="M5a-hn-kOY">
+                        <barButtonItem key="leftBarButtonItem" title="Start" id="eph-UN-iGd">
+                            <connections>
+                                <action selector="startStopAction:" destination="NkO-Kh-ZwI" id="5oP-Rr-O69"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="OK" id="7eg-Y0-dxm">
+                            <connections>
+                                <segue destination="PzV-EE-oLK" kind="unwind" unwindAction="exitToFoodView:" id="Qch-An-xiX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="okButton" destination="7eg-Y0-dxm" id="a23-af-1Y2"/>
+                        <outlet property="speechText" destination="vZn-Mp-WUr" id="Vwv-1l-3Tv"/>
+                        <outlet property="startStopButton" destination="eph-UN-iGd" id="xZC-HD-eyE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w8Q-dU-bEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PzV-EE-oLK" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4754" y="1194"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="NN7-4b-OTI">
             <objects>
@@ -270,9 +334,28 @@
             </objects>
             <point key="canvasLocation" x="3095" y="1204"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="r5i-Xy-NtV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZXV-b8-Kdx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SXf-fq-NeD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NkO-Kh-ZwI" kind="relationship" relationship="rootViewController" id="3Sf-eJ-mKO"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mdg-B9-r32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3975" y="1203"/>
+        </scene>
     </scenes>
     <resources>
         <image name="defaultImg" width="540" height="540"/>
+        <image name="mic" width="23" height="28"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hHV-vg-uUg"/>
