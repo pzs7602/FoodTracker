@@ -17,8 +17,8 @@ class Food: NSObject,NSCoding {
     var location:CLLocation?
     var videoFileName: String?
     
-    static let DocumentsDirectory = FileManager().urlsForDirectory(.documentDirectory, inDomains: .userDomainMask).first!
-    static let ArchiveURL = try! DocumentsDirectory.appendingPathComponent("foods")
+    static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
+    static let ArchiveURL = DocumentsDirectory.appendingPathComponent("foods")
     override init(){
         self.name = ""
         

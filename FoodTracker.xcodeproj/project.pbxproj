@@ -15,6 +15,7 @@
 		3486C5DF1D31F25800B5A6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3486C5DE1D31F25800B5A6BA /* Assets.xcassets */; };
 		3486C5EA1D31F40D00B5A6BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3486C5E91D31F40D00B5A6BA /* LaunchScreen.storyboard */; };
 		A477B2401D3BD05700D0C4A7 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */; };
+		A4A792A61D51A53A00824C50 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A792A51D51A53A00824C50 /* SpeechViewController.swift */; };
 		A4A887F81D3D2E5300B0D0E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A887F71D3D2E5300B0D0E1 /* MapViewController.swift */; };
 		A4A887FB1D3D31C400B0D0E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A887FA1D3D31C400B0D0E1 /* MapKit.framework */; };
 		A4BBA6501D3C78E3002518B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4BBA64E1D3C78E3002518B3 /* Main.storyboard */; };
@@ -31,6 +32,7 @@
 		3486C5E31D31F25800B5A6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3486C5E91D31F40D00B5A6BA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
+		A4A792A51D51A53A00824C50 /* SpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		A4A887F71D3D2E5300B0D0E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A4A887FA1D3D31C400B0D0E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A4BBA64F1D3C78E3002518B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				3486C5D71D31F25800B5A6BA /* AppDelegate.swift */,
 				3486C5DB1D31F25800B5A6BA /* Main1.storyboard */,
 				A4BBA64E1D3C78E3002518B3 /* Main.storyboard */,
+				A4A792A51D51A53A00824C50 /* SpeechViewController.swift */,
 				3486C5DE1D31F25800B5A6BA /* Assets.xcassets */,
 				3486C5E31D31F25800B5A6BA /* Info.plist */,
 				3486C5E91D31F40D00B5A6BA /* LaunchScreen.storyboard */,
@@ -176,6 +179,7 @@
 			files = (
 				3427AEA91D3238E100CAC407 /* Food.swift in Sources */,
 				A4A887F81D3D2E5300B0D0E1 /* MapViewController.swift in Sources */,
+				A4A792A61D51A53A00824C50 /* SpeechViewController.swift in Sources */,
 				3427AEA71D32370C00CAC407 /* FoodListViewController.swift in Sources */,
 				A477B2401D3BD05700D0C4A7 /* FoodCell.swift in Sources */,
 				3427AEAB1D3245FF00CAC407 /* FoodViewController.swift in Sources */,
@@ -297,7 +301,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -313,7 +317,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = FoodTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";

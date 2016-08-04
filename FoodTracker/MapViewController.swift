@@ -14,6 +14,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var annotation:MKPointAnnotation?
     var location:CLLocation?
+    var addressDictionary: [String : AnyObject]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,11 +23,62 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     }
     override func viewDidAppear(_ animated: Bool) {
         if let loc = self.location{
+            self.mapView.showsUserLocation = true
+
             self.putAnnotation(location: loc)
+            self.navigate(from: nil, to: loc)
         }
         
     }
-    
+    func navigate(from: CLLocation?, to: CLLocation)
+    {
+        let request = MKDirectionsRequest()
+        if from == nil{
+            request.source = MKMapItem.forCurrentLocation()
+            request.source?.name = "当前位置"
+        }
+        request.requestsAlternateRoutes = false
+        CLGeocoder().reverseGeocodeLocation(location!, completionHandler:{(marks, error) in
+            if error == nil, marks?.count>0{
+                self.addressDictionary = marks![0].addressDictionary as? [String : AnyObject]
+                let placeMark = MKPlacemark(coordinate: (self.location?.coordinate)!,addressDictionary:self.addressDictionary)
+                print("name=\(marks![0].name),\(marks![0].addressDictionary)")
+                request.destination = MKMapItem(placemark: placeMark)
+                request.destination?.name = marks?[0].name
+                // show overlay in map
+                let directions = MKDirections(request: request)
+                directions.calculate { (response:MKDirectionsResponse?, error:Error?) in
+                    if error != nil{
+                        print("error=\(error?.localizedDescription)")
+                    }
+                    else{
+                        self.showRoutes(response: response!)
+                    }
+                }
+                // open map with MKMapItems in
+                let options = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsShowsTrafficKey:true]
+                MKMapItem.openMaps(with: [request.source!,request.destination!], launchOptions: options as? [String : AnyObject])
+                
+
+            }
+        })
+    }
+
+    func showRoutes(response:MKDirectionsResponse)
+    {
+        for route in response.routes{
+            self.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
+            for step in route.steps{
+                print("instructions:\(step.instructions)")
+            }
+        }
+    }
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.blue
+        renderer.lineWidth = 5.0
+        return renderer
+    }
     @IBAction func okButtonAction(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -48,8 +100,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
 
     func getStringLocationFrom(location:CLLocation) -> String{
         var address = ""
-        CLGeocoder().reverseGeocodeLocation(location) { (marks:[CLPlacemark]?, error:NSError?) in
-            if marks!.count>0{
+        CLGeocoder().reverseGeocodeLocation(location, completionHandler:{(marks, error) in
+            if error == nil, marks?.count>0{
                 let country = (marks![0].country) ?? ""
                 let admin = (marks![0].administrativeArea) ?? ""
                 let subadmin = (marks?[0].subAdministrativeArea) ?? ""
@@ -60,7 +112,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                     self.title = "您位于：" + address
                 }
             }
-        }
+        })
+    
         // the returned address is empty, we can get proper address from completiuon handler
         return address
     }

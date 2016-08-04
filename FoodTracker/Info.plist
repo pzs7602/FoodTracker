@@ -22,8 +22,16 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Use camera for taking video/photo</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Need to use your location</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Use Mic for audio recording</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Use Photo for picking video/photo</string>
+	<key>NSSpeechRecognitionUsageDescription</key>
+	<string>Your speech will be recognized</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>location</string>
