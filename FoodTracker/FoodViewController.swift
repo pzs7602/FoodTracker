@@ -199,8 +199,8 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // ensure user has input a foond name
         if saveBtn === sender{
             if self.foodNameText.text == nil || self.foodNameText.text == ""{
-                let alert = UIAlertController(title: "Alert", message: "Please input a food name", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                let alert = UIAlertController(title: NSLocalizedString("Alert", comment: "Alert"), message:  NSLocalizedString("Please input a food name", comment: "Please input a food name") , preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "OK") , style: .default, handler: nil))
                 present(alert, animated: true, completion: nil)
                 return false
             }

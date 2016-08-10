@@ -13,7 +13,9 @@
 		3486C5D81D31F25800B5A6BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C5D71D31F25800B5A6BA /* AppDelegate.swift */; };
 		3486C5DD1D31F25800B5A6BA /* Main1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3486C5DB1D31F25800B5A6BA /* Main1.storyboard */; };
 		3486C5DF1D31F25800B5A6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3486C5DE1D31F25800B5A6BA /* Assets.xcassets */; };
-		3486C5EA1D31F40D00B5A6BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3486C5E91D31F40D00B5A6BA /* LaunchScreen.storyboard */; };
+		A43A07451D5B1E5400E697AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A43A07471D5B1E5400E697AA /* Localizable.strings */; };
+		A43A074A1D5B1E5500E697AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A43A074C1D5B1E5500E697AA /* InfoPlist.strings */; };
+		A43A074D1D5B248F00E697AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43A074F1D5B248F00E697AA /* LaunchScreen.storyboard */; };
 		A477B2401D3BD05700D0C4A7 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */; };
 		A4A792A61D51A53A00824C50 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A792A51D51A53A00824C50 /* SpeechViewController.swift */; };
 		A4A887F81D3D2E5300B0D0E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A887F71D3D2E5300B0D0E1 /* MapViewController.swift */; };
@@ -30,7 +32,12 @@
 		3486C5DC1D31F25800B5A6BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main1.storyboard; sourceTree = "<group>"; };
 		3486C5DE1D31F25800B5A6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3486C5E31D31F25800B5A6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3486C5E91D31F40D00B5A6BA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A43A07411D5B168F00E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		A43A07421D5B1E5400E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main1.strings"; sourceTree = "<group>"; };
+		A43A07461D5B1E5400E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		A43A074B1D5B1E5500E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		A43A074E1D5B248F00E697AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A43A07511D5B249200E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
 		A4A792A51D51A53A00824C50 /* SpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
 		A4A887F71D3D2E5300B0D0E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
@@ -70,13 +77,15 @@
 		3486C5D61D31F25800B5A6BA /* FoodTracker */ = {
 			isa = PBXGroup;
 			children = (
+				A43A074C1D5B1E5500E697AA /* InfoPlist.strings */,
+				A43A07471D5B1E5400E697AA /* Localizable.strings */,
 				3486C5D71D31F25800B5A6BA /* AppDelegate.swift */,
 				3486C5DB1D31F25800B5A6BA /* Main1.storyboard */,
 				A4BBA64E1D3C78E3002518B3 /* Main.storyboard */,
 				A4A792A51D51A53A00824C50 /* SpeechViewController.swift */,
 				3486C5DE1D31F25800B5A6BA /* Assets.xcassets */,
 				3486C5E31D31F25800B5A6BA /* Info.plist */,
-				3486C5E91D31F40D00B5A6BA /* LaunchScreen.storyboard */,
+				A43A074F1D5B248F00E697AA /* LaunchScreen.storyboard */,
 				3427AEA61D32370C00CAC407 /* FoodListViewController.swift */,
 				3427AEA81D3238E100CAC407 /* Food.swift */,
 				A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */,
@@ -147,6 +156,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 3486C5CB1D31F25800B5A6BA;
 			productRefGroup = 3486C5D51D31F25800B5A6BA /* Products */;
@@ -163,7 +173,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3486C5EA1D31F40D00B5A6BA /* LaunchScreen.storyboard in Resources */,
+				A43A07451D5B1E5400E697AA /* Localizable.strings in Resources */,
+				A43A074A1D5B1E5500E697AA /* InfoPlist.strings in Resources */,
+				A43A074D1D5B248F00E697AA /* LaunchScreen.storyboard in Resources */,
 				3486C5DF1D31F25800B5A6BA /* Assets.xcassets in Resources */,
 				A4BBA6501D3C78E3002518B3 /* Main.storyboard in Resources */,
 				3486C5DD1D31F25800B5A6BA /* Main1.storyboard in Resources */,
@@ -194,14 +206,41 @@
 			isa = PBXVariantGroup;
 			children = (
 				3486C5DC1D31F25800B5A6BA /* Base */,
+				A43A07421D5B1E5400E697AA /* zh-Hans */,
 			);
 			name = Main1.storyboard;
+			sourceTree = "<group>";
+		};
+		A43A07471D5B1E5400E697AA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A43A07461D5B1E5400E697AA /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		A43A074C1D5B1E5500E697AA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A43A074B1D5B1E5500E697AA /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A43A074F1D5B248F00E697AA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A43A074E1D5B248F00E697AA /* Base */,
+				A43A07511D5B249200E697AA /* zh-Hans */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 		A4BBA64E1D3C78E3002518B3 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A4BBA64F1D3C78E3002518B3 /* Base */,
+				A43A07411D5B168F00E697AA /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -213,6 +252,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -259,6 +299,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -303,7 +344,7 @@
 				INFOPLIST_FILE = FoodTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTrackor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -319,7 +360,7 @@
 				INFOPLIST_FILE = FoodTracker/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTracker;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTrackor;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

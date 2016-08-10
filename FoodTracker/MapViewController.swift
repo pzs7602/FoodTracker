@@ -35,7 +35,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         let request = MKDirectionsRequest()
         if from == nil{
             request.source = MKMapItem.forCurrentLocation()
-            request.source?.name = "当前位置"
+            request.source?.name = NSLocalizedString("Current location", comment: "Current location") 
         }
         request.requestsAlternateRoutes = false
         CLGeocoder().reverseGeocodeLocation(location!, completionHandler:{(marks, error) in
@@ -88,8 +88,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
             self.annotation = nil
         }
         self.annotation = MKPointAnnotation()
-        self.annotation?.title = "您位于：" + self.getStringLocationFrom(location: location)
-        self.annotation?.subtitle = "北纬：\(location.coordinate.latitude)，东经：\(location.coordinate.longitude)"
+        self.annotation?.title = NSLocalizedString("Your Location:", comment: "Your Location:") + self.getStringLocationFrom(location: location)
+        self.annotation?.subtitle = NSLocalizedString("latitude:", comment: "latitude:") + "\(location.coordinate.latitude)" + NSLocalizedString(",longitude:", comment: ",longitude:") + "\(location.coordinate.longitude)"
         self.annotation?.coordinate = location.coordinate
         self.mapView.addAnnotation(self.annotation!)
         let viewRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000)
@@ -108,8 +108,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                 let name = (marks?[0].name) ?? ""
                 address = address + country + " " + admin + " " + subadmin + " " + name
                 DispatchQueue.main.async {
-                    self.annotation?.title = "您位于：" + address
-                    self.title = "您位于：" + address
+                    self.annotation?.title = NSLocalizedString("Your location:", comment: "Your location:") + address
+                    self.title = NSLocalizedString("Your location:", comment: "Your location:") + address
                 }
             }
         })

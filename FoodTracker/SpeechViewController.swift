@@ -29,8 +29,8 @@ class SpeechViewController: UIViewController,AVAudioRecorderDelegate {
 
     @IBAction func startStopAction(_ sender: AnyObject) {
         let item = sender as! UIBarButtonItem
-        if item.title == "Start"{
-            item.title = "Stop"
+        if item.title == NSLocalizedString("Record", comment: "Record"){
+            item.title = NSLocalizedString("Stop", comment: "Stop")
             let aacAudioSettings = [AVFormatIDKey:NSNumber(value: kAudioFormatMPEG4AAC),
                                     AVSampleRateKey:NSNumber(value: 44100.0),
                                     AVNumberOfChannelsKey:2,
@@ -62,7 +62,7 @@ class SpeechViewController: UIViewController,AVAudioRecorderDelegate {
             }
         }
         else{
-            item.title = "Start"
+            item.title = NSLocalizedString("Record", comment: "Record")
             self.recorder?.stop()
             SFSpeechRecognizer.requestAuthorization { authStatus in
                 if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized {
