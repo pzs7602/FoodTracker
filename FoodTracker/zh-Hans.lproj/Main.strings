@@ -1,8 +1,8 @@
 /* Class = "UIBarButtonItem"; title = "OK"; ObjectID = "7eg-Y0-dxm"; */
 "7eg-Y0-dxm.title" = "确定";
 
-/* Class = "UIButton"; normalTitle = "Pick a video/photo"; ObjectID = "34A-CN-MYd"; */
-"34A-CN-MYd.normalTitle" = "挑选视频／照片";
+/* Class = "UIButton"; normalTitle = "Take a video/hhoto"; ObjectID = "GT8-fC-ojW"; */
+"GT8-fC-ojW.normalTitle" = "拍摄视频／照片";
 
 /* Class = "UINavigationItem"; title = "Speech Recogition"; ObjectID = "M5a-hn-kOY"; */
 "M5a-hn-kOY.title" = "语音识别";
@@ -10,11 +10,14 @@
 /* Class = "UIBarButtonItem"; title = "Start"; ObjectID = "eph-UN-iGd"; */
 "eph-UN-iGd.title" = "开始";
 
-/* Class = "UITextField"; placeholder = "Type food name or speech"; ObjectID = "h7k-Ni-hkC"; */
-"h7k-Ni-hkC.placeholder" = "输入食物名称或按录音按钮说话";
+/* Class = "UITextField"; placeholder = "Input food name here"; ObjectID = "ilo-Wa-mXI"; */
+"ilo-Wa-mXI.placeholder" = "请在此输入食物名称";
 
 /* Class = "UIBarButtonItem"; title = "OK"; ObjectID = "n4V-c0-IXL"; */
 "n4V-c0-IXL.title" = "确定";
+
+/* Class = "UIButton"; normalTitle = "Pick a video/photo"; ObjectID = "ocA-74-kmJ"; */
+"ocA-74-kmJ.normalTitle" = "挑选视频／照片";
 
 /* Class = "UINavigationItem"; title = "Food"; ObjectID = "qC6-CK-qJj"; */
 "qC6-CK-qJj.title" = "Food";
@@ -23,8 +26,5 @@
 "r1Y-vA-KPl.text" = "Title";
 
 /* Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x"; */
-"sfJ-Mi-u5x.title" = "Food Tracker";
-
-/* Class = "UIButton"; normalTitle = "Take a video/photo"; ObjectID = "w9V-QK-36Q"; */
-"w9V-QK-36Q.normalTitle" = "拍摄／拍照";
+"sfJ-Mi-u5x.title" = "美食迹";
 

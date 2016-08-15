@@ -64,7 +64,7 @@
       </trans-unit>
       <trans-unit id="sfJ-Mi-u5x.title">
         <source>Food Tracker</source>
-        <target>Food Tracker</target>
+        <target>美食迹</target>
         <note>Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x";</note>
       </trans-unit>
       <trans-unit id="w9V-QK-36Q.normalTitle">
@@ -95,6 +95,7 @@
       </trans-unit>
       <trans-unit id="sfJ-Mi-u5x.title">
         <source>Food Tracker</source>
+        <target>美食迹</target>
         <note>Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x";</note>
       </trans-unit>
     </body>
@@ -146,7 +147,7 @@
       <trans-unit id="Start">
         <source>Start</source>
         <target>开始</target>
-        <note></note>
+        <note>Start</note>
       </trans-unit>
       <trans-unit id="Stop">
         <source>Stop</source>
