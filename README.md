@@ -14,7 +14,8 @@ Data persistence: Object archiving(NSKeyedArchiver.archiveRootObject/NSKeyedArch
 UIImagePickerController, use it to take video/photo by camera or pick video/photo from Photo Library<br>
 FileManager: file operations(move/remove)<br>
 How to get thumbnail image from a video file at specified time<br>
-
+UIScrollView: How to display many UI controls in Landscape orientation<br>
+SFSpeechRecognizer/SFSpeechAudioBufferRecognitionRequest: How to implement real time speech recognition<br>
 # Environment
 Xcode 8.0+/Swift 3.0
 # License
