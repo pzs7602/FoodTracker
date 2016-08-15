@@ -2,4 +2,54 @@
 <Bucket
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "FoodTracker/FoodViewController.swift"
+            timestampString = "492942571.474013"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "exitToFoodView(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodTracker.FoodViewController.exitToFoodView (__ObjC.UIStoryboardSegue) -&gt; ()"
+                  moduleName = "FoodTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///pzs/iOSCourse/iOS%E5%B8%88%E8%B5%84%E5%9F%B9%E8%AE%AD%E6%9D%90%E6%96%99/FoodTracker-Finish/FoodTracker-Final/FoodTracker/FoodViewController.swift"
+                  timestampString = "492942571.700533"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "744">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FoodTracker.FoodViewController.(exitToFoodView (__ObjC.UIStoryboardSegue) -&gt; ()).(implicit closure #1)"
+                  moduleName = "FoodTracker"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///pzs/iOSCourse/iOS%E5%B8%88%E8%B5%84%E5%9F%B9%E8%AE%AD%E6%9D%90%E6%96%99/FoodTracker-Finish/FoodTracker-Final/FoodTracker/FoodViewController.swift"
+                  timestampString = "492942571.702696"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "134"
+                  endingLineNumber = "134"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -13,8 +13,8 @@
 /* Please input a food name */
 "Please input a food name" = "请输入食物名称";
 
-/* Record */
-"Record" = "录音";
+/* Start */
+"Start" = "开始";
 
 /* Stop */
 "Stop" = "停止";

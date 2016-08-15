@@ -7,8 +7,8 @@
 /* Class = "UINavigationItem"; title = "Speech Recogition"; ObjectID = "M5a-hn-kOY"; */
 "M5a-hn-kOY.title" = "语音识别";
 
-/* Class = "UIBarButtonItem"; title = "Record"; ObjectID = "eph-UN-iGd"; */
-"eph-UN-iGd.title" = "录音";
+/* Class = "UIBarButtonItem"; title = "Start"; ObjectID = "eph-UN-iGd"; */
+"eph-UN-iGd.title" = "开始";
 
 /* Class = "UITextField"; placeholder = "Type food name or speech"; ObjectID = "h7k-Ni-hkC"; */
 "h7k-Ni-hkC.placeholder" = "输入食物名称或按录音按钮说话";

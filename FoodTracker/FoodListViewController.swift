@@ -113,13 +113,17 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     }
     
     @IBAction func exitToFoodList(_ segue: UIStoryboardSegue){
-        if let preVC = segue.source as? FoodViewController, let food = preVC.food {
+        print("source=\(segue.source)")
+        if let preVC = segue.source as? FoodViewController{
+            let food = preVC.food!
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
                 // Update an existing meal.
                 foods[(selectedIndexPath as NSIndexPath).row] = food
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
                 // Add a new meal.
+                food.name = preVC.foodNameText.text!
+                
                 let newIndexPath = IndexPath(row: foods.count, section: 0)
                 foods.append(food)
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
@@ -150,13 +154,15 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
             // if the food has associated video, delete it
             let food = foods[indexPath.row]
             // we only deal with the video taken by our app
-            let filePath = (self.applicationDocumentsDirectory.path! as NSString).appendingPathComponent((food.videoFileName)!)
-            do{
-                print("remove:\(filePath)")
-                try FileManager.default.removeItem(atPath: filePath)
-            }
-            catch let error as NSError?{
-                print("error removing file:\(error?.description)")
+            if let name = food.videoFileName{
+                let filePath = (self.applicationDocumentsDirectory.path! as NSString).appendingPathComponent(name)
+                do{
+                    print("remove:\(filePath)")
+                    try FileManager.default.removeItem(atPath: filePath)
+                }
+                catch let error as NSError?{
+                    print("error removing file:\(error?.description)")
+                }
             }
             // Delete the row from the data source
             foods.remove(at: (indexPath as NSIndexPath).row)

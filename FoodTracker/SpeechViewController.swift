@@ -11,7 +11,7 @@ import AVKit
 import MediaPlayer
 import Speech
 
-class SpeechViewController: UIViewController,AVAudioRecorderDelegate {
+class SpeechViewController: UIViewController,AVAudioRecorderDelegate,AVCaptureAudioDataOutputSampleBufferDelegate,SFSpeechRecognitionTaskDelegate {
 
     @IBOutlet weak var okButton: UIBarButtonItem!
     @IBOutlet weak var startStopButton: UIBarButtonItem!
@@ -19,17 +19,21 @@ class SpeechViewController: UIViewController,AVAudioRecorderDelegate {
     @IBOutlet weak var speechText: UITextView!
     var audioUrl:URL?
     var recorder: AVAudioRecorder?
-
+    var capture: AVCaptureSession?
+    var speechRequest:SFSpeechAudioBufferRecognitionRequest?
+    var speechRecognizer:SFSpeechRecognizer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.speechText.text = ""
     }
-
+    // this recognition action is for recorded audio URL recognition
     @IBAction func startStopAction(_ sender: AnyObject) {
         let item = sender as! UIBarButtonItem
-        if item.title == NSLocalizedString("Record", comment: "Record"){
+        // start to record audio
+        if item.title == NSLocalizedString("Start", comment: "Start"){
             item.title = NSLocalizedString("Stop", comment: "Stop")
             let aacAudioSettings = [AVFormatIDKey:NSNumber(value: kAudioFormatMPEG4AAC),
                                     AVSampleRateKey:NSNumber(value: 44100.0),
@@ -61,11 +65,13 @@ class SpeechViewController: UIViewController,AVAudioRecorderDelegate {
                 
             }
         }
+        // audio recorded, start to speech recognize
         else{
-            item.title = NSLocalizedString("Record", comment: "Record")
+            item.title = NSLocalizedString("Start", comment: "Start")
             self.recorder?.stop()
             SFSpeechRecognizer.requestAuthorization { authStatus in
                 if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized {
+                    // default language is OS's language
                     let recognizer = SFSpeechRecognizer()
                     let request = SFSpeechURLRecognitionRequest(url: self.audioUrl!)
                     recognizer?.recognitionTask(with: request){ (result, error) in
@@ -82,6 +88,77 @@ class SpeechViewController: UIViewController,AVAudioRecorderDelegate {
             }
 
         }
+    }
+    // this is for real time audio recognition
+    @IBAction func startStopAction2(_ sender: AnyObject) {
+        let item = sender as! UIBarButtonItem
+        if item.title == NSLocalizedString("Start", comment: "Start"){
+            item.title = NSLocalizedString("Stop", comment: "Stop")
+            SFSpeechRecognizer.requestAuthorization { authStatus in
+                if authStatus == SFSpeechRecognizerAuthorizationStatus.authorized {
+                    self.speechRecognizer = SFSpeechRecognizer()
+                    self.speechRequest = SFSpeechAudioBufferRecognitionRequest()
+                    self.speechRecognizer?.recognitionTask(with: self.speechRequest!, delegate: self)
+                    DispatchQueue.main.async {
+                        self.startCapture()
+                    }
+
+                }
+            }
+        }
+        else{
+            item.title = NSLocalizedString("Start", comment: "Start")
+            self.endCapture()
+        }
+    }
+    
+    func startCapture()
+    {
+        self.capture = AVCaptureSession()
+        let audioDev = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeAudio)
+        guard audioDev != nil else{
+            print("could not create audio capture device")
+            return
+        }
+        let audioIn = try! AVCaptureDeviceInput(device: audioDev)
+        if self.capture?.canAddInput(audioIn) == false{
+            print("")
+            return
+        }
+        self.capture?.addInput(audioIn)
+        let audioOutput = AVCaptureAudioDataOutput()
+        audioOutput.setSampleBufferDelegate(self, queue: DispatchQueue.main)
+        if self.capture?.canAddOutput(audioOutput) == false{
+            print("")
+            return
+        }
+        self.capture?.addOutput(audioOutput)
+        audioOutput.connection(withMediaType: AVMediaTypeAudio)
+        self.capture?.startRunning()
+    }
+    func endCapture(){
+        if self.capture != nil && self.capture?.isRunning == true{
+            self.capture?.stopRunning()
+            self.capture = nil
+            self.speechRequest?.endAudio()
+        }
+    }
+    func speechRecognitionDidDetectSpeech(_ task: SFSpeechRecognitionTask) {
+        print("speechRecognitionDidDetectSpeech")
+    }
+    func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didHypothesizeTranscription transcription: SFTranscription) {
+        print("didHypothesizeTranscription")
+        print("\(transcription.formattedString)")
+        DispatchQueue.main.async {
+            self.speechText.text = transcription.formattedString
+        }
+    }
+    // when endAudio executed
+    func speechRecognitionTask(_ task: SFSpeechRecognitionTask, didFinishRecognition recognitionResult: SFSpeechRecognitionResult) {
+        print("didFinishRecognition")
+    }
+    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, from connection: AVCaptureConnection!) {
+        self.speechRequest?.appendAudioSampleBuffer(sampleBuffer)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

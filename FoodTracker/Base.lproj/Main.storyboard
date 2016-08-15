@@ -239,9 +239,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Speech Recogition" id="M5a-hn-kOY">
-                        <barButtonItem key="leftBarButtonItem" title="Record" id="eph-UN-iGd">
+                        <barButtonItem key="leftBarButtonItem" title="Start" id="eph-UN-iGd">
                             <connections>
-                                <action selector="startStopAction:" destination="NkO-Kh-ZwI" id="5oP-Rr-O69"/>
+                                <action selector="startStopAction2:" destination="NkO-Kh-ZwI" id="4vn-Fm-qZK"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="OK" id="7eg-Y0-dxm">

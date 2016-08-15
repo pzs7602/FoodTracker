@@ -43,10 +43,6 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     // 拍摄视频／图像或从照片库选取视频／图像后均调用本方法
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let name = foodNameText.text ?? ""
-        // if food is nil, this is add operation
-        if self.food == nil{
-            self.food = Food()
-        }
         self.food!.name = name
         if picker.sourceType == .camera{
             food!.location = self.delegate?.getCurrentLocation()
@@ -108,6 +104,10 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             foodNameText.text   = food.name
             photoImage.image = food.photo
         }
+        else{
+            // if food is nil, this is add operation
+            self.food = Food()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -131,8 +131,11 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func exitToFoodView(_ segue: UIStoryboardSegue){
         let vc = segue.source as! SpeechViewController
         self.foodNameText.text = vc.speechText.text
-        self.dismiss(animated: true, completion: nil)
-        
+        if vc.capture != nil && vc.capture?.isRunning == true{
+            vc.capture?.stopRunning()
+            vc.capture = nil
+            vc.speechRequest?.endAudio()
+        }        
     }
     @IBAction func takePhotoAction(_ sender: AnyObject) {
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
@@ -181,6 +184,7 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // if segue trigered by the save button
         if saveBtn === sender {
             food?.name = self.foodNameText.text!
+            // location,photo,videoFileName already set
         }
         // else the segue trigered by tap the image
         else if segue.identifier == "showmap"{

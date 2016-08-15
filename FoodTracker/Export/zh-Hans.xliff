@@ -38,9 +38,9 @@
         <note>Class = "UINavigationItem"; title = "Speech Recogition"; ObjectID = "M5a-hn-kOY";</note>
       </trans-unit>
       <trans-unit id="eph-UN-iGd.title">
-        <source>Record</source>
-        <target>录音</target>
-        <note>Class = "UIBarButtonItem"; title = "Record"; ObjectID = "eph-UN-iGd";</note>
+        <source>Start</source>
+        <target>开始</target>
+        <note>Class = "UIBarButtonItem"; title = "Start"; ObjectID = "eph-UN-iGd";</note>
       </trans-unit>
       <trans-unit id="h7k-Ni-hkC.placeholder">
         <source>Type food name or speech</source>
@@ -64,7 +64,7 @@
       </trans-unit>
       <trans-unit id="sfJ-Mi-u5x.title">
         <source>Food Tracker</source>
-        <target>美食迹</target>
+        <target>Food Tracker</target>
         <note>Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x";</note>
       </trans-unit>
       <trans-unit id="w9V-QK-36Q.normalTitle">
@@ -95,7 +95,6 @@
       </trans-unit>
       <trans-unit id="sfJ-Mi-u5x.title">
         <source>Food Tracker</source>
-        <target>美食迹</target>
         <note>Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x";</note>
       </trans-unit>
     </body>
@@ -144,10 +143,10 @@
         <target>请输入食物名称</target>
         <note>Please input a food name</note>
       </trans-unit>
-      <trans-unit id="Record">
-        <source>Record</source>
-        <target>录音</target>
-        <note>Record</note>
+      <trans-unit id="Start">
+        <source>Start</source>
+        <target>开始</target>
+        <note></note>
       </trans-unit>
       <trans-unit id="Stop">
         <source>Stop</source>
