@@ -16,8 +16,9 @@ FileManager: file operations(move/remove)<br>
 How to get thumbnail image from a video file at specified time<br>
 UIScrollView: How to display many UI controls in Landscape orientation<br>
 SFSpeechRecognizer/SFSpeechAudioBufferRecognitionRequest: How to implement real time speech recognition<br>
+OAuth 2.0<br>
 Internationalization<br>
 # Environment
-Xcode 8.0+/Swift 3.0
+Xcode 8.2+/Swift 3.0
 # License
 New BSD
