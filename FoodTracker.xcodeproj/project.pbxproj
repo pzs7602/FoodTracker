@@ -11,17 +11,33 @@
 		3427AEA91D3238E100CAC407 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3427AEA81D3238E100CAC407 /* Food.swift */; };
 		3427AEAB1D3245FF00CAC407 /* FoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3427AEAA1D3245FF00CAC407 /* FoodViewController.swift */; };
 		3486C5D81D31F25800B5A6BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3486C5D71D31F25800B5A6BA /* AppDelegate.swift */; };
-		3486C5DD1D31F25800B5A6BA /* Main1.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3486C5DB1D31F25800B5A6BA /* Main1.storyboard */; };
 		3486C5DF1D31F25800B5A6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3486C5DE1D31F25800B5A6BA /* Assets.xcassets */; };
 		A43A07451D5B1E5400E697AA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A43A07471D5B1E5400E697AA /* Localizable.strings */; };
 		A43A074A1D5B1E5500E697AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A43A074C1D5B1E5500E697AA /* InfoPlist.strings */; };
 		A43A074D1D5B248F00E697AA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A43A074F1D5B248F00E697AA /* LaunchScreen.storyboard */; };
+		A451AB2F1DA0D30400D1689E /* PreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A451AB2E1DA0D30400D1689E /* PreviewController.swift */; };
 		A477B2401D3BD05700D0C4A7 /* FoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */; };
-		A4A792A61D51A53A00824C50 /* SpeechViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A792A51D51A53A00824C50 /* SpeechViewController.swift */; };
+		A49696881DCD6FE900BE9C5F /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A49696871DCD6FE900BE9C5F /* Utility.swift */; };
+		A496968A1DCD704700BE9C5F /* AFNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A49696891DCD704700BE9C5F /* AFNetworking.framework */; };
+		A496968D1DCD709700BE9C5F /* AFNetworking.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = A49696891DCD704700BE9C5F /* AFNetworking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A496968F1DCD72E200BE9C5F /* WeiboViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A496968E1DCD72E200BE9C5F /* WeiboViewController.swift */; };
 		A4A887F81D3D2E5300B0D0E1 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A887F71D3D2E5300B0D0E1 /* MapViewController.swift */; };
 		A4A887FB1D3D31C400B0D0E1 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4A887FA1D3D31C400B0D0E1 /* MapKit.framework */; };
 		A4BBA6501D3C78E3002518B3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A4BBA64E1D3C78E3002518B3 /* Main.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A496968C1DCD708600BE9C5F /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A496968D1DCD709700BE9C5F /* AFNetworking.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		3427AEA61D32370C00CAC407 /* FoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +45,18 @@
 		3427AEAA1D3245FF00CAC407 /* FoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodViewController.swift; sourceTree = "<group>"; };
 		3486C5D41D31F25800B5A6BA /* FoodTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3486C5D71D31F25800B5A6BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		3486C5DC1D31F25800B5A6BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main1.storyboard; sourceTree = "<group>"; };
 		3486C5DE1D31F25800B5A6BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3486C5E31D31F25800B5A6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A43A07411D5B168F00E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
-		A43A07421D5B1E5400E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main1.strings"; sourceTree = "<group>"; };
 		A43A07461D5B1E5400E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A43A074B1D5B1E5500E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		A43A074E1D5B248F00E697AA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A43A07511D5B249200E697AA /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A451AB2E1DA0D30400D1689E /* PreviewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviewController.swift; sourceTree = "<group>"; };
 		A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodCell.swift; sourceTree = "<group>"; };
-		A4A792A51D51A53A00824C50 /* SpeechViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechViewController.swift; sourceTree = "<group>"; };
+		A49696871DCD6FE900BE9C5F /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		A49696891DCD704700BE9C5F /* AFNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AFNetworking.framework; path = FoodTracker/AFNetworking.framework; sourceTree = "<group>"; };
+		A496968E1DCD72E200BE9C5F /* WeiboViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeiboViewController.swift; sourceTree = "<group>"; };
 		A4A887F71D3D2E5300B0D0E1 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		A4A887FA1D3D31C400B0D0E1 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A4BBA64F1D3C78E3002518B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A496968A1DCD704700BE9C5F /* AFNetworking.framework in Frameworks */,
 				A4A887FB1D3D31C400B0D0E1 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,11 +96,11 @@
 			isa = PBXGroup;
 			children = (
 				A43A074C1D5B1E5500E697AA /* InfoPlist.strings */,
+				A49696871DCD6FE900BE9C5F /* Utility.swift */,
 				A43A07471D5B1E5400E697AA /* Localizable.strings */,
 				3486C5D71D31F25800B5A6BA /* AppDelegate.swift */,
-				3486C5DB1D31F25800B5A6BA /* Main1.storyboard */,
 				A4BBA64E1D3C78E3002518B3 /* Main.storyboard */,
-				A4A792A51D51A53A00824C50 /* SpeechViewController.swift */,
+				A496968E1DCD72E200BE9C5F /* WeiboViewController.swift */,
 				3486C5DE1D31F25800B5A6BA /* Assets.xcassets */,
 				3486C5E31D31F25800B5A6BA /* Info.plist */,
 				A43A074F1D5B248F00E697AA /* LaunchScreen.storyboard */,
@@ -91,6 +109,7 @@
 				A477B23F1D3BD05700D0C4A7 /* FoodCell.swift */,
 				3427AEAA1D3245FF00CAC407 /* FoodViewController.swift */,
 				A4A887F71D3D2E5300B0D0E1 /* MapViewController.swift */,
+				A451AB2E1DA0D30400D1689E /* PreviewController.swift */,
 			);
 			path = FoodTracker;
 			sourceTree = "<group>";
@@ -98,6 +117,7 @@
 		A4A887F91D3D31C400B0D0E1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A49696891DCD704700BE9C5F /* AFNetworking.framework */,
 				A4A887FA1D3D31C400B0D0E1 /* MapKit.framework */,
 			);
 			name = Frameworks;
@@ -113,6 +133,7 @@
 				3486C5D01D31F25800B5A6BA /* Sources */,
 				3486C5D11D31F25800B5A6BA /* Frameworks */,
 				3486C5D21D31F25800B5A6BA /* Resources */,
+				A496968C1DCD708600BE9C5F /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -130,7 +151,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = idup;
 				TargetAttributes = {
 					3486C5D31D31F25800B5A6BA = {
@@ -178,7 +199,6 @@
 				A43A074D1D5B248F00E697AA /* LaunchScreen.storyboard in Resources */,
 				3486C5DF1D31F25800B5A6BA /* Assets.xcassets in Resources */,
 				A4BBA6501D3C78E3002518B3 /* Main.storyboard in Resources */,
-				3486C5DD1D31F25800B5A6BA /* Main1.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,9 +209,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A451AB2F1DA0D30400D1689E /* PreviewController.swift in Sources */,
+				A496968F1DCD72E200BE9C5F /* WeiboViewController.swift in Sources */,
 				3427AEA91D3238E100CAC407 /* Food.swift in Sources */,
+				A49696881DCD6FE900BE9C5F /* Utility.swift in Sources */,
 				A4A887F81D3D2E5300B0D0E1 /* MapViewController.swift in Sources */,
-				A4A792A61D51A53A00824C50 /* SpeechViewController.swift in Sources */,
 				3427AEA71D32370C00CAC407 /* FoodListViewController.swift in Sources */,
 				A477B2401D3BD05700D0C4A7 /* FoodCell.swift in Sources */,
 				3427AEAB1D3245FF00CAC407 /* FoodViewController.swift in Sources */,
@@ -202,15 +224,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		3486C5DB1D31F25800B5A6BA /* Main1.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3486C5DC1D31F25800B5A6BA /* Base */,
-				A43A07421D5B1E5400E697AA /* zh-Hans */,
-			);
-			name = Main1.storyboard;
-			sourceTree = "<group>";
-		};
 		A43A07471D5B1E5400E697AA /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -263,8 +276,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -310,8 +325,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -341,10 +358,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FoodTracker",
+				);
 				INFOPLIST_FILE = FoodTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTrackor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTrackor2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_VERSION = 3.0;
@@ -357,10 +378,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FoodTracker",
+				);
 				INFOPLIST_FILE = FoodTracker/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTrackor;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gdou.FoodTrackor2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

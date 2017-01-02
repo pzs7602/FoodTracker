@@ -10,14 +10,14 @@ import UIKit
 import CoreLocation
 import ReplayKit
 
-class FoodListViewController: UITableViewController,CLLocationManagerDelegate,MyLocationDelegate,RPBroadcastActivityViewControllerDelegate {
+class FoodListViewController: UITableViewController,CLLocationManagerDelegate,MyLocationDelegate,UIViewControllerPreviewingDelegate{
 
     private var  foods: [Food] = [Food]()
     let locationManager = CLLocationManager()
     var currentLocation:CLLocation?
     var sharedRecorder: RPScreenRecorder = RPScreenRecorder.shared()
-    var previewViewController: RPPreviewViewController?
-    var broadcastController: RPBroadcastController?
+//    var previewViewController: RPPreviewViewController?
+//    var broadcastController: RPBroadcastController?
     
     @IBOutlet weak var recordStopButton: UIBarButtonItem!
     func loadFoods() -> [Food]? {
@@ -30,6 +30,12 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        if( traitCollection.forceTouchCapability == .available){
+            
+            registerForPreviewing(with: self, sourceView: view)
+            
+        }
+
         if let savedFoods = loadFoods() {
             foods += savedFoods
         } else {
@@ -40,7 +46,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
         }
         locationManager.delegate = self
         
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // allow background location updates
 //        locationManager.allowsBackgroundLocationUpdates = true
 //        locationManager.startMonitoringVisits()
@@ -49,8 +55,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     }
 
     func loadDefaultFoods(){
-        foods.append(Food(name: "egg", photo: nil,location: nil,videoFileName:nil)!)
-        foods.append(Food(name: "fish", photo: nil,location: nil,videoFileName:nil)!)
+
 
     }
     
@@ -89,14 +94,15 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
 //    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "foodCell", for: indexPath)  as! FoodCell
         
-        cell.textLabel?.text = foods[(indexPath as NSIndexPath).row].name
+        cell.subTitle?.text = foods[(indexPath as NSIndexPath).row].restaurant
+        cell.foodName?.text = foods[(indexPath as NSIndexPath).row].name
         if let image = foods[(indexPath as NSIndexPath).row].photo{
-            cell.imageView!.image = self.resizedImage(image)
+            cell.foodImage!.image = self.resizedImage(image)
         }
         else{
-            cell.imageView?.image = self.resizedImage(UIImage(named:"defaultImg" )!)
+            cell.foodImage?.image = self.resizedImage(UIImage(named:"defaultImg" )!)
         }
         return cell
     }
@@ -123,7 +129,8 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
             } else {
                 // Add a new meal.
                 food.name = preVC.foodNameText.text!
-                
+                food.phone = preVC.phoneText.text!
+                food.restaurant = preVC.restaurantText.text!
                 let newIndexPath = IndexPath(row: foods.count, section: 0)
                 foods.append(food)
                 tableView.insertRows(at: [newIndexPath], with: .bottom)
@@ -176,7 +183,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showfood" {
             let foodViewController = segue.destination as! FoodViewController
             foodViewController.delegate = self
@@ -221,43 +228,31 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
         return self.currentLocation
     }
     
-    @IBAction func recordStopAction(_ sender: AnyObject) {
-        let item = sender as! UIBarButtonItem
-        if item.title == "Record"{
-            item.title = "Stop"
-            RPBroadcastActivityViewController.load { broadcastAVC, error in
-                if let broadcastAVC = broadcastAVC {
-                    broadcastAVC.delegate = self
-                    self.present(broadcastAVC, animated: true, completion: nil)
-                }
-            }
-//            sharedRecorder.startRecording { error in
-//                if error == nil {
-//                    
-//                }
-//            }
-        }
-        // by showing preview, you can share or save the video
-        // but app cannt get access the recording video
-        else{
-            item.title = "Record"
-            self.broadcastController?.finishBroadcast { (error:Error?) in
-                
-            }
-//            sharedRecorder.stopRecording{ (preview:RPPreviewViewController?, error:Error?) in
-//                self.present(preview!, animated: true)
-//            }
-        }
+    // MARK: UIViewControllerPreviewingDelegate methods
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = tableView?.indexPathForRow(at: location) else { return nil }
+        
+        guard let cell = tableView?.cellForRow(at: indexPath) else { return nil }
+        
+        guard let previewVC = storyboard?.instantiateViewController(withIdentifier: "foodviewcontroller") as? FoodViewController else { return nil }
+        
+        let food = foods[(indexPath as NSIndexPath).row]
+        previewVC.food = food
+        
+        previewVC.preferredContentSize = CGSize(width: 0.0, height: 0.0)
+        
+        previewingContext.sourceRect = cell.frame
+        
+        return previewVC
     }
-    func broadcastActivityViewController(_ broadcastActivityViewController: RPBroadcastActivityViewController, didFinishWith broadcastController: RPBroadcastController?, error: Error?) {
-        broadcastActivityViewController.dismiss(animated: true) {
-            broadcastController?.startBroadcast { error in
-                // broadcast started!
-                print("broadcast started")
-                self.broadcastController = broadcastController
-            }
-        }
+    
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
+        
+        show(viewControllerToCommit, sender: self)
+        
     }
+    
 
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.gdou.RadioPlayer" in the application's documents Application Support directory.

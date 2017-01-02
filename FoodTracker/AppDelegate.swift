@@ -12,7 +12,7 @@ UIScrollView 的使用：
  加入UIScrollView 作为根视图的子视图，定 Constraints 的 top/bottom/leading/trailing 为 0
  加入UIView 作为 UIScrollView 的子视图，Label 定为 ContainerView，定义 top/bottom/leading/trailing 为0
  将 ContainerView 的 width 与 ViewController 的根视图 width 相同
- 将 ContainerView 的高度定为 650（可酌情修改）
+ 将 ContainerView 的高度定为 650（可酌情修改）。注意：由于滚动区域大小由ContainerView 决定，故除top/bottom/leading/trailing Constraints 外，其宽度、高度必须指定（一般大于屏幕区域）
  在 ContainerView 中加入其它控件
 */
 import UIKit
@@ -22,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         NSLog("%@", "applicationDidFinishLaunchingWithOptions")
         return true

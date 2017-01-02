@@ -14,7 +14,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
     var annotation:MKPointAnnotation?
     var location:CLLocation?
-    var addressDictionary: [String : AnyObject]?
+    var addressDictionary: [AnyHashable : Any]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +39,9 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         }
         request.requestsAlternateRoutes = false
         CLGeocoder().reverseGeocodeLocation(location!, completionHandler:{(marks, error) in
-            if error == nil, marks?.count>0{
-                self.addressDictionary = marks![0].addressDictionary as? [String : AnyObject]
-                let placeMark = MKPlacemark(coordinate: (self.location?.coordinate)!,addressDictionary:self.addressDictionary)
+            if error == nil, (marks?.count)!>0{
+                self.addressDictionary = marks![0].addressDictionary
+                let placeMark = MKPlacemark(coordinate: (self.location?.coordinate)!,addressDictionary:nil)
                 print("name=\(marks![0].name),\(marks![0].addressDictionary)")
                 request.destination = MKMapItem(placemark: placeMark)
                 request.destination?.name = marks?[0].name
@@ -56,8 +56,8 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                     }
                 }
                 // open map with MKMapItems in
-                let options = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsShowsTrafficKey:true]
-                MKMapItem.openMaps(with: [request.source!,request.destination!], launchOptions: options as? [String : AnyObject])
+                let options = [MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving,MKLaunchOptionsShowsTrafficKey:true] as [String : Any]
+                MKMapItem.openMaps(with: [request.source!,request.destination!], launchOptions: options)
                 
 
             }
@@ -101,7 +101,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     func getStringLocationFrom(location:CLLocation) -> String{
         var address = ""
         CLGeocoder().reverseGeocodeLocation(location, completionHandler:{(marks, error) in
-            if error == nil, marks?.count>0{
+            if error == nil, (marks?.count)!>0{
                 let country = (marks![0].country) ?? ""
                 let admin = (marks![0].administrativeArea) ?? ""
                 let subadmin = (marks?[0].subAdministrativeArea) ?? ""

@@ -1,15 +1,10 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
   <file original="FoodTracker/Base.lproj/LaunchScreen.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8S193k"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
     </header>
     <body>
-      <trans-unit id="GJd-Yh-RWb.text">
-        <source>FoodTracker</source>
-        <target>美食迹</target>
-        <note>Class = "UILabel"; text = "FoodTracker"; ObjectID = "GJd-Yh-RWb";</note>
-      </trans-unit>
       <trans-unit id="obG-Y5-kRd.text">
         <source>  Copyright © 2016年 GDOU. All rights reserved.</source>
         <target>© 2016年 PZS. 版权所有</target>
@@ -19,90 +14,126 @@
   </file>
   <file original="FoodTracker/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8S193k"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
     </header>
     <body>
+      <trans-unit id="2sk-Ec-blw.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "2sk-Ec-blw";</note>
+      </trans-unit>
+      <trans-unit id="5Fs-8o-R5x.normalTitle">
+        <source>Button</source>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "5Fs-8o-R5x";</note>
+      </trans-unit>
+      <trans-unit id="5s0-6n-X8B.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "5s0-6n-X8B";</note>
+      </trans-unit>
+      <trans-unit id="6dR-B4-v6q.normalTitle">
+        <source>Button</source>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "6dR-B4-v6q";</note>
+      </trans-unit>
       <trans-unit id="7eg-Y0-dxm.title">
         <source>OK</source>
         <target>确定</target>
         <note>Class = "UIBarButtonItem"; title = "OK"; ObjectID = "7eg-Y0-dxm";</note>
       </trans-unit>
-      <trans-unit id="34A-CN-MYd.normalTitle">
-        <source>Pick a video/photo</source>
-        <target>挑选视频／照片</target>
-        <note>Class = "UIButton"; normalTitle = "Pick a video/photo"; ObjectID = "34A-CN-MYd";</note>
+      <trans-unit id="C9q-Gc-Dl0.title">
+        <source>Share</source>
+        <target>分享</target>
+        <note>Class = "UIBarButtonItem"; title = "Share"; ObjectID = "C9q-Gc-Dl0";</note>
+      </trans-unit>
+      <trans-unit id="GT8-fC-ojW.normalTitle">
+        <source>Take a video/hhoto</source>
+        <target>拍摄视频／照片</target>
+        <note>Class = "UIButton"; normalTitle = "Take a video/hhoto"; ObjectID = "GT8-fC-ojW";</note>
       </trans-unit>
       <trans-unit id="M5a-hn-kOY.title">
         <source>Speech Recogition</source>
         <target>语音识别</target>
         <note>Class = "UINavigationItem"; title = "Speech Recogition"; ObjectID = "M5a-hn-kOY";</note>
       </trans-unit>
+      <trans-unit id="Of3-aU-YC8.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "Of3-aU-YC8";</note>
+      </trans-unit>
+      <trans-unit id="Pyw-Vz-nDR.placeholder">
+        <source>Input phone number here</source>
+        <target>在此输入电话号码</target>
+        <note>Class = "UITextField"; placeholder = "Input phone number here"; ObjectID = "Pyw-Vz-nDR";</note>
+      </trans-unit>
+      <trans-unit id="Vpq-cO-Plk.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "Vpq-cO-Plk";</note>
+      </trans-unit>
+      <trans-unit id="ayn-nE-KrW.normalTitle">
+        <source>Button</source>
+        <note>Class = "UIButton"; normalTitle = "Button"; ObjectID = "ayn-nE-KrW";</note>
+      </trans-unit>
       <trans-unit id="eph-UN-iGd.title">
         <source>Start</source>
         <target>开始</target>
         <note>Class = "UIBarButtonItem"; title = "Start"; ObjectID = "eph-UN-iGd";</note>
       </trans-unit>
-      <trans-unit id="h7k-Ni-hkC.placeholder">
-        <source>Type food name or speech</source>
-        <target>输入食物名称或按录音按钮说话</target>
-        <note>Class = "UITextField"; placeholder = "Type food name or speech"; ObjectID = "h7k-Ni-hkC";</note>
+      <trans-unit id="ggw-9A-Fav.title">
+        <source>Cancel</source>
+        <target>取消</target>
+        <note>Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "ggw-9A-Fav";</note>
+      </trans-unit>
+      <trans-unit id="ilo-Wa-mXI.placeholder">
+        <source>Input food name here</source>
+        <target>在此输入食物名称</target>
+        <note>Class = "UITextField"; placeholder = "Input food name here"; ObjectID = "ilo-Wa-mXI";</note>
+      </trans-unit>
+      <trans-unit id="l53-Pj-5cw.title">
+        <source>Login</source>
+        <target>登录</target>
+        <note>Class = "UINavigationItem"; title = "Login"; ObjectID = "l53-Pj-5cw";</note>
       </trans-unit>
       <trans-unit id="n4V-c0-IXL.title">
         <source>OK</source>
         <target>确定</target>
         <note>Class = "UIBarButtonItem"; title = "OK"; ObjectID = "n4V-c0-IXL";</note>
       </trans-unit>
-      <trans-unit id="qC6-CK-qJj.title">
-        <source>Food</source>
-        <target>Food</target>
-        <note>Class = "UINavigationItem"; title = "Food"; ObjectID = "qC6-CK-qJj";</note>
+      <trans-unit id="ocA-74-kmJ.normalTitle">
+        <source>Pick a video/photo</source>
+        <target>挑选视频／照片</target>
+        <note>Class = "UIButton"; normalTitle = "Pick a video/photo"; ObjectID = "ocA-74-kmJ";</note>
       </trans-unit>
-      <trans-unit id="r1Y-vA-KPl.text">
-        <source>Title</source>
-        <target>Title</target>
-        <note>Class = "UILabel"; text = "Title"; ObjectID = "r1Y-vA-KPl";</note>
+      <trans-unit id="qC6-CK-qJj.title">
+        <source>Add Food</source>
+        <target>添加食物</target>
+        <note>Class = "UINavigationItem"; title = "Add Food"; ObjectID = "qC6-CK-qJj";</note>
+      </trans-unit>
+      <trans-unit id="sbX-cE-pth.title">
+        <source>AutoFill</source>
+        <target>自动填充</target>
+        <note>Class = "UIBarButtonItem"; title = "AutoFill"; ObjectID = "sbX-cE-pth";</note>
       </trans-unit>
       <trans-unit id="sfJ-Mi-u5x.title">
         <source>Food Tracker</source>
         <target>美食迹</target>
         <note>Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x";</note>
       </trans-unit>
-      <trans-unit id="w9V-QK-36Q.normalTitle">
-        <source>Take a video/photo</source>
-        <target>拍摄／拍照</target>
-        <note>Class = "UIButton"; normalTitle = "Take a video/photo"; ObjectID = "w9V-QK-36Q";</note>
+      <trans-unit id="tTU-jI-XSv.text">
+        <source>Label</source>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "tTU-jI-XSv";</note>
       </trans-unit>
-    </body>
-  </file>
-  <file original="FoodTracker/Base.lproj/Main1.storyboard" source-language="en" datatype="plaintext" target-language="zh-Hans">
-    <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8S193k"/>
-    </header>
-    <body>
-      <trans-unit id="Aa5-H0-Nh0.text">
-        <source>Title</source>
-        <target>标题</target>
-        <note>Class = "UILabel"; text = "Title"; ObjectID = "Aa5-H0-Nh0";</note>
+      <trans-unit id="x52-a5-hda.placeholder">
+        <source>Input restaurant here</source>
+        <target>在此输入食府名称</target>
+        <note>Class = "UITextField"; placeholder = "Input restaurant here"; ObjectID = "x52-a5-hda";</note>
       </trans-unit>
-      <trans-unit id="h7k-Ni-hkC.placeholder">
-        <source>Type Food Name Here</source>
-        <target>输入食物名称</target>
-        <note>Class = "UITextField"; placeholder = "Type Food Name Here"; ObjectID = "h7k-Ni-hkC";</note>
-      </trans-unit>
-      <trans-unit id="qC6-CK-qJj.title">
-        <source>Food</source>
-        <note>Class = "UINavigationItem"; title = "Food"; ObjectID = "qC6-CK-qJj";</note>
-      </trans-unit>
-      <trans-unit id="sfJ-Mi-u5x.title">
-        <source>Food Tracker</source>
-        <target>美食迹</target>
-        <note>Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x";</note>
+      <trans-unit id="zCh-mC-UA2.title">
+        <source>Cancel</source>
+        <target>取消</target>
+        <note>Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "zCh-mC-UA2";</note>
       </trans-unit>
     </body>
   </file>
   <file original="FoodTracker/Info.plist" source-language="en" datatype="plaintext" target-language="zh-Hans">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8S193k"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
     </header>
     <body>
       <trans-unit id="CFBundleName">
@@ -116,7 +147,7 @@
   </file>
   <file original="FoodTracker/Localizable.strings" source-language="en" datatype="plaintext" target-language="zh-Hans">
     <header>
-      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.0" build-num="8S193k"/>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="8.1" build-num="8B62"/>
     </header>
     <body>
       <trans-unit id=",longitude:">
@@ -144,6 +175,16 @@
         <target>请输入食物名称</target>
         <note>Please input a food name</note>
       </trans-unit>
+      <trans-unit id="Reservation">
+        <source>Reservation</source>
+        <target>订座</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Share">
+        <source>Share</source>
+        <target>分享</target>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
       <trans-unit id="Start">
         <source>Start</source>
         <target>开始</target>
@@ -153,6 +194,11 @@
         <source>Stop</source>
         <target>停止</target>
         <note>Stop</note>
+      </trans-unit>
+      <trans-unit id="Telephone number is incorrect">
+        <source>Telephone number is incorrect</source>
+        <target>电话号码不正确，请重新输入</target>
+        <note>Telephone number is incorrect</note>
       </trans-unit>
       <trans-unit id="Your Location:">
         <source>Your Location:</source>

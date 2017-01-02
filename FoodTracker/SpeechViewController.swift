@@ -22,7 +22,7 @@ class SpeechViewController: UIViewController,AVAudioRecorderDelegate,AVCaptureAu
     var capture: AVCaptureSession?
     var speechRequest:SFSpeechAudioBufferRecognitionRequest?
     var speechRecognizer:SFSpeechRecognizer?
-    
+    var sender: Int = 0   // 标志是哪个字段的识别文字：1 name , 2 phone, 3 restaurant
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -171,14 +171,16 @@ class SpeechViewController: UIViewController,AVAudioRecorderDelegate,AVCaptureAu
         return urls[urls.count-1] as NSURL
     }()
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+
+        
     }
-    */
+    
 
 }

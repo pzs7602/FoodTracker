@@ -1,9 +1,0 @@
-/* Class = "UILabel"; text = "Title"; ObjectID = "Aa5-H0-Nh0"; */
-"Aa5-H0-Nh0.text" = "标题";
-
-/* Class = "UITextField"; placeholder = "Type Food Name Here"; ObjectID = "h7k-Ni-hkC"; */
-"h7k-Ni-hkC.placeholder" = "输入食物名称";
-
-/* Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x"; */
-"sfJ-Mi-u5x.title" = "美食迹";
-

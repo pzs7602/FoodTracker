@@ -1,17 +1,29 @@
 /* Class = "UIBarButtonItem"; title = "OK"; ObjectID = "7eg-Y0-dxm"; */
 "7eg-Y0-dxm.title" = "确定";
 
+/* Class = "UIBarButtonItem"; title = "Share"; ObjectID = "C9q-Gc-Dl0"; */
+"C9q-Gc-Dl0.title" = "分享";
+
 /* Class = "UIButton"; normalTitle = "Take a video/hhoto"; ObjectID = "GT8-fC-ojW"; */
 "GT8-fC-ojW.normalTitle" = "拍摄视频／照片";
 
 /* Class = "UINavigationItem"; title = "Speech Recogition"; ObjectID = "M5a-hn-kOY"; */
 "M5a-hn-kOY.title" = "语音识别";
 
+/* Class = "UITextField"; placeholder = "Input phone number here"; ObjectID = "Pyw-Vz-nDR"; */
+"Pyw-Vz-nDR.placeholder" = "在此输入电话号码";
+
 /* Class = "UIBarButtonItem"; title = "Start"; ObjectID = "eph-UN-iGd"; */
 "eph-UN-iGd.title" = "开始";
 
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "ggw-9A-Fav"; */
+"ggw-9A-Fav.title" = "取消";
+
 /* Class = "UITextField"; placeholder = "Input food name here"; ObjectID = "ilo-Wa-mXI"; */
-"ilo-Wa-mXI.placeholder" = "请在此输入食物名称";
+"ilo-Wa-mXI.placeholder" = "在此输入食物名称";
+
+/* Class = "UINavigationItem"; title = "Login"; ObjectID = "l53-Pj-5cw"; */
+"l53-Pj-5cw.title" = "登录";
 
 /* Class = "UIBarButtonItem"; title = "OK"; ObjectID = "n4V-c0-IXL"; */
 "n4V-c0-IXL.title" = "确定";
@@ -19,12 +31,18 @@
 /* Class = "UIButton"; normalTitle = "Pick a video/photo"; ObjectID = "ocA-74-kmJ"; */
 "ocA-74-kmJ.normalTitle" = "挑选视频／照片";
 
-/* Class = "UINavigationItem"; title = "Food"; ObjectID = "qC6-CK-qJj"; */
-"qC6-CK-qJj.title" = "Food";
+/* Class = "UINavigationItem"; title = "Add Food"; ObjectID = "qC6-CK-qJj"; */
+"qC6-CK-qJj.title" = "添加食物";
 
-/* Class = "UILabel"; text = "Title"; ObjectID = "r1Y-vA-KPl"; */
-"r1Y-vA-KPl.text" = "Title";
+/* Class = "UIBarButtonItem"; title = "AutoFill"; ObjectID = "sbX-cE-pth"; */
+"sbX-cE-pth.title" = "自动填充";
 
 /* Class = "UINavigationItem"; title = "Food Tracker"; ObjectID = "sfJ-Mi-u5x"; */
 "sfJ-Mi-u5x.title" = "美食迹";
+
+/* Class = "UITextField"; placeholder = "Input restaurant here"; ObjectID = "x52-a5-hda"; */
+"x52-a5-hda.placeholder" = "在此输入食府名称";
+
+/* Class = "UIBarButtonItem"; title = "Cancel"; ObjectID = "zCh-mC-UA2"; */
+"zCh-mC-UA2.title" = "取消";
 

@@ -13,11 +13,20 @@
 /* Please input a food name */
 "Please input a food name" = "请输入食物名称";
 
+/* No comment provided by engineer. */
+"Reservation" = "订座";
+
+/* No comment provided by engineer. */
+"Share" = "分享";
+
 /* Start */
 "Start" = "开始";
 
 /* Stop */
 "Stop" = "停止";
+
+/* Telephone number is incorrect */
+"Telephone number is incorrect" = "电话号码不正确，请重新输入";
 
 /* Your Location: */
 "Your Location:" = "您位于：";
