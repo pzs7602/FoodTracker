@@ -19,6 +19,6 @@ SFSpeechRecognizer/SFSpeechAudioBufferRecognitionRequest: How to implement real 
 OAuth 2.0<br>
 Internationalization<br>
 # Environment
-Xcode 8.2+/Swift 3.0
+Xcode 9+/Swift 4.x
 # License
 New BSD
