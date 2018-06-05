@@ -16,6 +16,6 @@ FileManager: file operations(move/remove)<br>
 How to get thumbnail image from a video file at specified time<br>
 
 # Environment
-Xcode 8.0+/Swift 3.0
+Xcode 9.0+/Swift 4.0
 # License
 New BSD
