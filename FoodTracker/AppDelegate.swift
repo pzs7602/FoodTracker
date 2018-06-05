@@ -7,6 +7,13 @@
 //
 /*
 FoodTracker 是一个由浅入深的iOS 项目，这是功能最多的最终版本。用户可添加食物并可拍摄图像或视频作为介绍该食物的展示材料，视频文件保存于程序的文档 Documents 目录。文件名 videoyyyyMMdd-HHmmss。
+UIScrollView 的使用：
+ 在 Size Inspector 中，将场景控制器的Simulated Size 改为 Freeform，高度定为 800
+ 加入UIScrollView 作为根视图的子视图，定 Constraints 的 top/bottom/leading/trailing 为 0
+ 加入UIView 作为 UIScrollView 的子视图，Label 定为 ContainerView，定义 top/bottom/leading/trailing 为0
+ 将 ContainerView 的 width 与 ViewController 的根视图 width 相同
+ 将 ContainerView 的高度定为 650（可酌情修改）。注意：由于滚动区域大小由ContainerView 决定，故除top/bottom/leading/trailing Constraints 外，其宽度、高度必须指定（一般大于屏幕区域）
+ 在 ContainerView 中加入其它控件
 */
 import UIKit
 
@@ -15,8 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         NSLog("%@", "applicationDidFinishLaunchingWithOptions")
         return true

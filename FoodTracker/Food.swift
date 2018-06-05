@@ -16,18 +16,25 @@ class Food: NSObject,NSCoding {
     var photo: UIImage?
     var location:CLLocation?
     var videoFileName: String?
-    
+    var phone: String?
+    var restaurant: String?
+    var comment: String?
     static let DocumentsDirectory = FileManager().urls(for: .documentDirectory, in: .userDomainMask).first!
     static let ArchiveURL = DocumentsDirectory.appendingPathComponent("foods")
     override init(){
         self.name = ""
-        
+        self.phone = ""
+        self.comment = ""
+        self.restaurant = ""
     }
-    init?(name: String, photo: UIImage?,location:CLLocation?,videoFileName:String?) {
+    init?(name: String, photo: UIImage?,location:CLLocation?,videoFileName:String?,phone:String?,restaurant:String?,comment:String = "") {
         
         self.name = name
         self.photo = photo
         self.location = location
+        self.phone = phone
+        self.comment = comment
+        self.restaurant = restaurant
         self.videoFileName = videoFileName
         super.init()
         
@@ -41,7 +48,9 @@ class Food: NSObject,NSCoding {
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photoKey) as? UIImage
         let location = aDecoder.decodeObject(forKey:PropertyKey.location) as? CLLocation
         let videoFileName = aDecoder.decodeObject(forKey:PropertyKey.videoFileName) as? String
-        self.init(name: name, photo: photo,location: location,videoFileName:videoFileName)
+        let phone = aDecoder.decodeObject(forKey:PropertyKey.phone) as? String
+        let restaurant = aDecoder.decodeObject(forKey:PropertyKey.restaurant) as? String
+        self.init(name: name, photo: photo,location: location,videoFileName:videoFileName,phone:phone,restaurant:restaurant)
     }
     
     // for object persistence
@@ -50,6 +59,9 @@ class Food: NSObject,NSCoding {
         aCoder.encode(photo, forKey: PropertyKey.photoKey)
         aCoder.encode(location, forKey: PropertyKey.location)
         aCoder.encode(videoFileName,forKey: PropertyKey.videoFileName)
+        aCoder.encode(phone,forKey: PropertyKey.phone)
+        aCoder.encode(restaurant,forKey: PropertyKey.restaurant)
+        aCoder.encode(comment,forKey: PropertyKey.comment)
     }
     
 }
@@ -59,4 +71,7 @@ struct PropertyKey {
     static let photoKey = "photo"
     static let location = "location"
     static let videoFileName = "videoURL"
+    static let phone = "phone"
+    static let restaurant = "restaurant"
+    static let comment = "comment"
 }
