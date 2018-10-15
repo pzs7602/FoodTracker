@@ -51,7 +51,7 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         var newCenter:CGPoint = recognizer.translation(in: self.view)
         //        println("state=\(returnStateString(recognizer.state))")
         // Pan 手势开始
-        if recognizer.state == UIGestureRecognizerState.began{
+        if recognizer.state == UIGestureRecognizer.State.began{
             // beginX,beginY 为Pan 手势开始时图像中心的坐标
             self.beginX = self.photoImage!.center.x
             self.beginY = self.photoImage!.center.y
@@ -67,7 +67,7 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             print("image nil")
             return
         }
-        if recognizer.state == UIGestureRecognizerState.ended {
+        if recognizer.state == UIGestureRecognizer.State.ended {
             // 如果Pinch 手势结束，重置 previousScale 为 1.0
             self.previousScale = 1
             print("Pinch Ended")
@@ -85,7 +85,10 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.previousScale = recognizer.scale
     }
     // 拍摄视频／图像或从照片库选取视频／图像后均调用本方法
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         let name = foodNameText.text ?? ""
         self.food!.name = name
         if picker.sourceType == .camera{
@@ -93,7 +96,7 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         else{
             food!.location = nil
-            let assetURL = info[UIImagePickerControllerReferenceURL] as? URL
+            let assetURL = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.referenceURL)] as? URL
             let assets = PHAsset.fetchAssets(withALAssetURLs: [assetURL!], options: nil)
             let asset = assets.firstObject! as PHAsset
             if let loc = asset.location{
@@ -108,12 +111,12 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let filePath = (self.applicationDocumentsDirectory.path! as NSString).appendingPathComponent(file)
                 try FileManager.default.removeItem(atPath: filePath)
             }
-            catch let error as NSError?{
-                print("error removing file:\(error?.description)")
+            catch let error as Error?{
+                print("error removing file:\(error!.localizedDescription)")
             }
         }
         // if user take/pick a photo
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage{
             photoImage.image = image
             self.food?.photo = image
             food!.videoFileName = nil
@@ -121,9 +124,9 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // else if user take/pick a video
         else{
             // if user take/pick a video, the pathURL is in tmp dir of the App's sandbox, so we have to save its data
-            let tempURL = info[UIImagePickerControllerMediaURL] as? URL
+            let tempURL = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.mediaURL)] as? URL
             let dateFormat = DateFormatter()
-            print("temp video=\(tempURL?.lastPathComponent)")
+            print("temp video=\(String(describing: tempURL?.lastPathComponent))")
             
             dateFormat.dateFormat = "yyyyMMdd-HHmmss"
             // video file name: videoyyyyMMdd-HHmmss.mov
@@ -133,8 +136,8 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             do{
                 try FileManager.default.moveItem(atPath:tempURL!.path,toPath:filePath)
             }
-            catch let error as NSError?{
-                print("error moving file:\(error?.description)")
+            catch let error as Error?{
+                print("error moving file:\(error!.localizedDescription)")
             }
             photoImage.image = self.getImageFrom(videoURL: URL(fileURLWithPath: filePath),atSeconds: 1.0) ?? UIImage(named: "defaultImg")
             self.food?.photo = photoImage.image
@@ -151,8 +154,8 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let filePath = (self.applicationDocumentsDirectory.path! as NSString).appendingPathComponent(file)
                 try FileManager.default.removeItem(atPath: filePath)
             }
-            catch let error as NSError?{
-                print("error removing file:\(error?.description)")
+            catch let error as Error?{
+                print("error removing file:\(error!.localizedDescription)")
             }
         }
         // Dismiss the picker.
@@ -205,7 +208,7 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func takePhotoAction(_ sender: AnyObject) {
         // UIImagePickerController is a view controller that lets a user pick media from their photo library.
         let imagePickerController = UIImagePickerController()
-        let availableSourceTypes = UIImagePickerController.availableMediaTypes(for: UIImagePickerControllerSourceType.camera)
+        let availableSourceTypes = UIImagePickerController.availableMediaTypes(for: UIImagePickerController.SourceType.camera)
         
         // take a video.
         imagePickerController.sourceType = .camera
@@ -312,8 +315,8 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         do{
             cgImage = try gen.copyCGImage(at: time, actualTime: &actualTime)
         }
-        catch let error as NSError?{
-            print("error=\(error?.description)")
+        catch let error as Error?{
+            print("error=\(error!.localizedDescription)")
         }
         let image:UIImage? = UIImage(cgImage: cgImage!)
         return image
@@ -381,4 +384,14 @@ class FoodViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return urls[urls.count-1] as NSURL
     }()
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

@@ -50,7 +50,7 @@ class WeiboViewController: UIViewController,UIWebViewDelegate {
     }
     
     // 第二步：获取accessToken
-    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebView.NavigationType) -> Bool {
         // 如果第一步获取授权码调用成功，则会跳转: http://www.sina.com&code=CODE
         // 以下语句保证如果未获得授权码，则显示Web界面（一般是出错信息）
         guard request.url?.absoluteString.hasPrefix("http://www.sina.com") == true && (request.url?.query?.hasPrefix("code=")) == true else{
@@ -86,8 +86,8 @@ class WeiboViewController: UIViewController,UIWebViewDelegate {
                             }
                         }
                     }
-                    catch let error as NSError?{
-                        print("error=\(error.debugDescription)")
+                    catch let error as Error?{
+                        print("error=\(error?.localizedDescription)")
                     }
                 }
                 else{

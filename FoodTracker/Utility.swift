@@ -177,11 +177,11 @@ class Utility {
         
         if image != nil {
             name = "pic"
-            data = UIImageJPEGRepresentation(image!,1.0)
+            data = image!.jpegData(compressionQuality: 1.0)
         }
         // image size is larger than 5M, so compressed it
         if (data! as NSData).length > 1024*1024*5{
-            data = UIImageJPEGRepresentation(image!,0.5)
+            data = image!.jpegData(compressionQuality: 0.5)
         }
         // 4. 发起网络请求
         tokenRequest(accessToken: accessToken,method: .POST, URLString: urlString, parameters: params as [String : Any]?, name: name, data: data) { (json, isSuccess) in
@@ -326,10 +326,10 @@ class Utility {
         let MPboundary:String = "--\(TWITTERFON_FORM_BOUNDARY)"
         let endMPboundary:String = "\(MPboundary)--"
         //convert UIImage to NSData
-        var data:NSData = UIImageJPEGRepresentation(image,1.0)! as NSData
+        var data:NSData = image.jpegData(compressionQuality: 1.0)! as NSData
         // image size larger than 5M, compress it
         if data.length > 1024*1024*5{
-            data = UIImageJPEGRepresentation(image, 0.5)! as NSData
+            data = image.jpegData(compressionQuality: 0.5)! as NSData
         }
         let body:NSMutableString = NSMutableString();
         // with other params
@@ -360,7 +360,7 @@ class Utility {
         let task = URLSession.shared.dataTask(with: request as URLRequest, completionHandler: {
             data, response, error in
             if error != nil {
-                print("error=\(error?.localizedDescription)")
+                print("error=\(error!.localizedDescription)")
                 errord(error as! NSError)
                 return
             }

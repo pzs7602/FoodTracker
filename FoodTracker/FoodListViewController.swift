@@ -156,7 +156,7 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
     }
     
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // if the food has associated video, delete it
             let food = foods[indexPath.row]
@@ -167,8 +167,8 @@ class FoodListViewController: UITableViewController,CLLocationManagerDelegate,My
                     print("remove:\(filePath)")
                     try FileManager.default.removeItem(atPath: filePath)
                 }
-                catch let error as NSError?{
-                    print("error removing file:\(error?.description)")
+                catch let error as Error?{
+                    print("error removing file:\(error!.localizedDescription)")
                 }
             }
             // Delete the row from the data source

@@ -32,7 +32,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
     }
     func navigate(from: CLLocation?, to: CLLocation)
     {
-        let request = MKDirectionsRequest()
+        let request = MKDirections.Request()
         if from == nil{
             request.source = MKMapItem.forCurrentLocation()
             request.source?.name = NSLocalizedString("Current location", comment: "Current location") 
@@ -47,9 +47,9 @@ class MapViewController: UIViewController,MKMapViewDelegate {
                 request.destination?.name = marks?[0].name
                 // show overlay in map
                 let directions = MKDirections(request: request)
-                directions.calculate { (response:MKDirectionsResponse?, error:Error?) in
+                directions.calculate { (response:MKDirections.Response?, error:Error?) in
                     if error != nil{
-                        print("error=\(error?.localizedDescription)")
+                        print("error=: \(error!.localizedDescription)")
                     }
                     else{
                         self.showRoutes(response: response!)
@@ -64,10 +64,10 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         })
     }
 
-    func showRoutes(response:MKDirectionsResponse)
+    func showRoutes(response:MKDirections.Response)
     {
         for route in response.routes{
-            self.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
+            self.mapView.addOverlay(route.polyline, level: MKOverlayLevel.aboveRoads)
             for step in route.steps{
                 print("instructions:\(step.instructions)")
             }
@@ -92,7 +92,7 @@ class MapViewController: UIViewController,MKMapViewDelegate {
         self.annotation?.subtitle = NSLocalizedString("latitude:", comment: "latitude:") + "\(location.coordinate.latitude)" + NSLocalizedString(",longitude:", comment: ",longitude:") + "\(location.coordinate.longitude)"
         self.annotation?.coordinate = location.coordinate
         self.mapView.addAnnotation(self.annotation!)
-        let viewRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, 1000, 1000)
+        let viewRegion = MKCoordinateRegion.init(center: location.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         let adjustedRegion = self.mapView.regionThatFits(viewRegion)
         self.mapView.setRegion(adjustedRegion, animated: true)
         
